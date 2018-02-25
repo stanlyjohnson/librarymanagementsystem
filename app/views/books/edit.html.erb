@@ -1,0 +1,104 @@
+<html>
+<head>
+<link rel="icon" type="image/png" sizes="72x72" href="static/pic/favicon.ico">
+	
+	<title>Library</title>
+	<meta charset="utf-8">
+   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   	<meta charset="utf-8">
+   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body class="p-3 mb-2 bg-light text-black">
+
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<a class="navbar-brand" style="color:white;">LIBRARY MANAGEMENT SYSTEM</a>
+	
+	<ul class="navbar-nav ml-auto">
+		<li class="nav-item active" style="padding-right:10px;">
+			<div class="btn btn-outline-info active " >
+                		<h4>Books</h4>
+			</div>  
+           	</li>
+
+		<li class="nav-item " style="padding-right:10px;">
+			<div class="btn btn-outline-secondary" >
+                		<h4><%= link_to 'Students',controller:'kids'%></h4>
+			</div>            
+		</li>
+
+		<li class="nav-item ">
+			<div class="btn btn-outline-secondary" >
+                		<h4><%= link_to 'Home',controller:'home'%></h4>
+			</div>            
+		</li>
+	</ul>
+</nav>
+<br><br>
+
+
+<div class="row">
+	<div class="row mx-auto">
+		<h1 style="font-weight:bold;">Edit book details</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="row mx-auto "> 
+		<%= form_with(model: @book) do |form| %>
+ 
+		  <% if @book.errors.any? %>
+		    <div id="error_explanation">
+		      <h2>
+			<%= pluralize(@book.errors.count, "error") %> prohibited
+			this book from being saved:
+		      </h2>
+		      <ul>
+			<% @book.errors.full_messages.each do |msg| %>
+			  <li><%= msg %></li>
+			<% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		 
+		  <p>
+		    <%= form.label :BookID %><br>
+		    <%= form.text_field :bookid %>
+		  </p>
+		 
+		  <p>
+		    <%= form.label :Title %><br>
+		    <%= form.text_field :title %>
+		  </p>
+		   <p>
+		    <%= form.label :Author %><br>
+		    <%= form.text_field :author %>
+		  </p>
+		 
+		 
+		  <p>
+		    <%= form.label :Description %><br>
+		    <%= form.text_area :description %>
+		  </p>
+		 
+		  <p>
+		    <%= form.submit %>
+		  </p>
+ 
+		  <% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="row mx-auto">
+		<h3 style="font-weight:bold;"><%= link_to 'Back', books_path %></h3>
+	</div>
+</div>

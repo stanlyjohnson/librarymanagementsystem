@@ -1,0 +1,90 @@
+<html>
+<head>
+<link rel="icon" type="image/png" sizes="72x72" href="static/pic/favicon.ico">
+	
+	<title>Library</title>
+	<meta charset="utf-8">
+   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   	<meta charset="utf-8">
+   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body class="p-3 mb-2 bg-light text-black">
+
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<a class="navbar-brand" style="color:white;">LIBRARY MANAGEMENT SYSTEM</a>
+	
+	<ul class="navbar-nav ml-auto">
+		<li class="nav-item active" style="padding-right:10px;">
+			<div class="btn btn-outline-secondary " >
+                		<h4><%= link_to 'Books',controller:'books'%></h4>
+			</div>  
+           	</li>
+
+		<li class="nav-item " style="padding-right:10px;">
+			<div class="btn btn-outline-info active" >
+                		<h4>Students</h4>
+			</div>            
+		</li>
+
+		<li class="nav-item ">
+			<div class="btn btn-outline-secondary" >
+                		<h4><%= link_to 'Home',controller:'home'%></h4>
+			</div>            
+		</li>
+	</ul>
+</nav>
+<br><br>
+
+<div class="row">
+	<div class="row mx-auto">
+		<h1 style="font-weight:bold;">Edit Student details</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="row mx-auto "> 
+		<%= form_with(model: @kid) do |form| %>
+		 
+		 
+		  <p>
+		    <%= form.label :Studentname %><br>
+		    <%= form.text_field :studentname,:readonly => true%>
+		  </p>
+		 
+		  <p>
+		    <%= form.label :Address %><br>
+		    <%= form.text_field :address,:readonly => true %>
+		  </p>
+		 <p>
+		    <%= form.label :Section %><br>
+		    <%= form.text_field :section,:readonly => true %>
+		  </p>
+		  
+		<p>
+		    <%= form.label :BookID %><br>
+		    <%= form.text_area :bookid %>
+		  </p>
+
+		  <p>
+		    <%= form.submit "Submit" %>
+		  </p>
+		 
+		<% end %>
+ 	</div>
+</div>
+
+<div class="row">
+	<div class="row mx-auto">
+		<h3 style="font-weight:bold;"><%= link_to 'Back', kids_path %></h3>
+	</div>
+</div>
+
